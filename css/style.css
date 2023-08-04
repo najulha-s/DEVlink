@@ -11,6 +11,11 @@
     --text-color: white;
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.1);
+    --switch-gb-url: url(../img/moonStar.svg);
+    --higthligth-color: rgba(255,255,255,0.2);
+    --superface-color-hover: rgba(255,255,255,0.5);
+
+
 }
 
 /* Modificações do body */
@@ -53,7 +58,48 @@ font-weight: 500;
 line-height: 24px;
 }
 
+/* switch bottom */
+#switch{
+position: relative;
+width: 64px;
+margin: 4px auto;
 
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0;
+    background: white var(--switch-gb-url) no-repeat center;
+
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+
+    animation: slide-out 0.2s;
+
+}
+
+#switch button:hover{
+    outline: 8px solid var(--higthligth-color);
+}
+
+.light #switch button{
+    animation: slide-in 0.2s forwards;
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
 
 
 /* links */
@@ -74,10 +120,18 @@ line-height: 24px;
 border: 1px solid var(--stroke-color);
 border-radius: 8px;
 background: var(--surface-color);
+backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 
 
     text-decoration: none;
     font-weight: bold;
+}
+
+#links ul li a:hover{
+    background: var(--superface-color-hover);
+    border: 1px solid var(--text-color);
+
 }
 
 /* Modificações nos links das redes sociais */
@@ -106,4 +160,32 @@ font-size: 24px;
 #footer a{
     text-decoration: none;
 
+}
+
+.light{
+    --bg-url:url(../img/branco.jpg);
+    --text-color: black;
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.1);
+    --switch-gb-url: url(../img/Sun.svg);
+    --higthligth-color: rgba(0,0,0,0.2);
+    --superface-color-hover: rgba(0,0,0,0.5); 
+}
+
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-out{
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
 }
